@@ -70,10 +70,10 @@ class GameFragment : Fragment() {
 //            binding.wordText.text = newWord
 //        })
 
-        gameViewModel.currentTime.observe(viewLifecycleOwner, Observer { newTime ->
-            binding.timerText.text= DateUtils.formatElapsedTime(newTime)
-
-        })
+//        gameViewModel.currentTime.observe(viewLifecycleOwner, Observer { newTime ->
+//            binding.timerText.text= DateUtils.formatElapsedTime(newTime)
+//
+//        }) added livedata transformation
 
         gameViewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { hasFinished->
             if(hasFinished) {
