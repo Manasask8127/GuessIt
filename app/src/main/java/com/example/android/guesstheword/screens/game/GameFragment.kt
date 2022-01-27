@@ -57,17 +57,18 @@ class GameFragment : Fragment() {
         gameViewModel=ViewModelProvider(this).get(GameViewModel::class.java)
 
         binding.gameViewModel=gameViewModel
+        binding.setLifecycleOwner(this)
 
 
-        //LiveData for score
-        gameViewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-            binding.scoreText.text = newScore.toString()
-        })
-
-        //LiveData for word
-        gameViewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
-            binding.wordText.text = newWord
-        })
+        //LiveData for score ,no need databinding used
+//        gameViewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+//            binding.scoreText.text = newScore.toString()
+//        })
+//
+//        //LiveData for word
+//        gameViewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
+//            binding.wordText.text = newWord
+//        })
 
         gameViewModel.currentTime.observe(viewLifecycleOwner, Observer { newTime ->
             binding.timerText.text= DateUtils.formatElapsedTime(newTime)
